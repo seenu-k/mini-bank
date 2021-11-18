@@ -10,7 +10,7 @@ export class AppComponent {
 
   title = 'Mini Bank - Coding Design Assessment';
   balance = 0;
-  operation = new FormControl('balance');
+  operation = new FormControl('deposit');
   amount = new FormControl('');
 
   balanceStringToBalance(balanceString: string) {
@@ -28,12 +28,13 @@ export class AppComponent {
         C = val;
       }
     }
+    console.log(D, C);
     return D+(C/100); // Think about negative D
   }
 
   balanceToBalanceString(balance: number) {
     let D = Math.floor(balance);
-    let C = (balance*100)%100;
+    let C = (balance*100)%100; // Think
     if(D===0) {
       return C+"C";
     }
@@ -41,6 +42,16 @@ export class AppComponent {
       return D+"D";
     }
     return D+"D "+C+"C";
+  }
+
+  performOperation() {
+    if(this.operation.value=='deposit') {
+      this.balance += this.balanceStringToBalance(this.amount.value);
+    }
+    if(this.operation.value=='withdraw') {
+      this.balance -= this.balanceStringToBalance(this.amount.value);
+    }
+    console.log(this.balance);
   }
 
 }
