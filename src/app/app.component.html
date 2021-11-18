@@ -11,9 +11,15 @@
   </mat-select>
 </mat-form-field>
 
-<div>
+<div *ngIf="operation.value!=='balance'">
   <mat-form-field appearance="fill">
     <mat-label>Amount String</mat-label>
     <input matInput [formControl]="amount">
   </mat-form-field>
+</div>
+
+<button mat-raised-button color="primary" (click)="performOperation()">Perform Operation</button>
+
+<div>
+  <h1>Balance = {{balanceToBalanceString(balance)}}</h1>
 </div>
