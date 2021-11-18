@@ -28,20 +28,20 @@ export class AppComponent {
         C = val;
       }
     }
-    console.log(D, C);
     return D+(C/100); // Think about negative D
   }
 
   balanceToBalanceString(balance: number) {
-    let D = Math.floor(balance);
-    let C = (balance*100)%100; // Think
+    let D = Math.floor(balance) + (balance<0?1:0)
+    let C = (balance*100)%100;
+    console.log(D, C);
     if(D===0) {
       return C+"C";
     }
     if(C==0) {
       return D+"D";
     }
-    return D+"D "+C+"C";
+    return D+"D "+C.toFixed(0)+"C";
   }
 
   performOperation() {
@@ -51,7 +51,6 @@ export class AppComponent {
     if(this.operation.value=='withdraw') {
       this.balance -= this.balanceStringToBalance(this.amount.value);
     }
-    console.log(this.balance);
   }
 
 }

@@ -1,6 +1,14 @@
 # MiniBank
 
+## Further Steps
+
+- Denomination parameters can generalised with a dictionary of values and convertion indices
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.1.3.
+
+## Install Dependencies
+
+Run `npm i` inside the project directory to install Node dependencies.
 
 ## Development server
 
